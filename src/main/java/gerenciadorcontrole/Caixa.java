@@ -9,30 +9,27 @@ package gerenciadorcontrole;
  * @author Aluno
  */
 public class Caixa {
-    private String dia;
+    private int id;
     private double valor;
     private String status1;
     private String status2;
-    
     public Caixa(){
     
 }
 
-    public Caixa(String dia, double valor, String status1,String status2) {
-        this.dia = dia;
+    public Caixa(int id, double valor, String status1, String status2) {
+        this.id= id;
         this.valor = valor;
         this.status1 = status1;
         this.status2 = status2;
     }
-
-    public String getDia(String name) {
-        return dia;
+    public int getId() {
+        return id;
     }
 
-    public void setDia(String dia) {
-        this.dia = dia;
+    public void setId(int id) {
+        this.id = id;
     }
-
     public double getValor(java.lang.Double text) {
         return valor;
     }
@@ -55,6 +52,5 @@ public class Caixa {
 
     public void setStatus2(String status2) {
         this.status2 = status2;
-    }
-        
+    }           
 }

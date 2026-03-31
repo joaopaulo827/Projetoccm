@@ -7,32 +7,30 @@ package conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Aluno
  */
 public class Conexao {
+private static Connection conn= null;
+
 private static final String url = "jdbc:mysql://localhost:3307/projetoccm";
 private static final String user = "root";
 private static final String senha = "";
 
-public static Connection conectar(){
-    Connection conn= null;
-    try{
-        conn=DriverManager.getConnection(url, user, senha);        
-    }catch (SQLException e){
-        e.printStackTrace();
-    }
-    return conn;
+private Conexao() {
 }
-public void testarConexao(){
-    Connection conn= conectar();
-    if(conn== null){
-        JOptionPane.showMessageDialog(null, "Erro ao conectar");
-    }else{
-        JOptionPane.showMessageDialog(null, "Conectado");
+public static synchronized  Connection conectar(){
+try {
+    if (conn ==null || conn.isClosed()){
+        conn = DriverManager.getConnection(url,user,senha);
     }
+} catch(SQLException e){
+    e.printStackTrace();
 }
+return conn;
+}
+        
 }
