@@ -19,13 +19,9 @@ public final class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     public Inicio() {
-        if(UsuarioLogin.getId()>0){
+        
         initComponents();
         listarTabela();
-        }else{
-            JOptionPane.showMessageDialog(null, "Preencha os campos do login.");
-            new Login().setVisible(true);
-        }
     }
     
     public void listarTabela(){
@@ -322,8 +318,12 @@ ListarTabela();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                if(UsuarioLogin.getId()>0){
                 new Inicio().setVisible(true);
-                
+                        }else{
+            JOptionPane.showMessageDialog(null, "Preencha os campos do login.");
+            new Login().setVisible(true);
+        }
             }
         });
     }
