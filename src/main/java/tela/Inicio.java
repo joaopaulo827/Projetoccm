@@ -19,7 +19,7 @@ public final class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     public Inicio() {
-        if(UsuarioLogin.getId()>=0){
+        if(UsuarioLogin.getId()>0){
         initComponents();
         listarTabela();
         }else{
