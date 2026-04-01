@@ -5,37 +5,62 @@
 package tela;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import gerenciadorcontrole.Caixa;
+import java.util.List;
+import model.CaixaBean;
+import model.CaixaDAO;
+import model.UsuarioLogin;
 /**
  *
  * @author Aluno
  */
-public class Inicio extends javax.swing.JFrame {
+public final class Inicio extends javax.swing.JFrame {
     DefaultTableModel model;
     /**
      * Creates new form Inicio
      */
     public Inicio() {
+        if(UsuarioLogin.getId()>=0){
         initComponents();
+        listarTabela();
+        }else{
+            JOptionPane.showMessageDialog(null, "Preencha os campos do login.");
+            new Login().setVisible(true);
+        }
+    }
+    
+    public void listarTabela(){
+        model = (DefaultTableModel) Informacoes.getModel();
+        model.setRowCount(0);
+        
+        CaixaDAO dao= new CaixaDAO();
+        List<CaixaBean> caixas=dao.listar();
+        
+        for(CaixaBean c: caixas){
+            Object[] linha={
+                c.getId_caixa(),
+                c.getValor(),
+                c.getTipo(),
+                c.getEntrege()
+            };
+            model.addRow(linha);
+        }
     }
 
-    public void TabelaCaixa(){
+    public void ListarTabela(){
         model = (DefaultTableModel) Informacoes.getModel();
-        Double a= Double.valueOf(valor.getText());
-        Caixa currentCaixa=new Caixa();
-        currentCaixa.setId(model.getRowCount()+1);
-        currentCaixa.setValor(a);
-        currentCaixa.setStatus1(tipodoValor.getSelectedItem().toString());
-        currentCaixa.setStatus2(StatusEntregue.getSelectedItem().toString());
-        Object[] obj = {
-        currentCaixa.getId(),
-        currentCaixa.getValor(a),
-        currentCaixa.getStatus1(SOMEBITS),
-        currentCaixa.getStatus2(SOMEBITS),
-        };
-        
-        model.addRow(obj);
-
+        Float a= Float.valueOf(valor.getText());
+        CaixaBean currentcaixa=new CaixaBean();
+        currentcaixa.setId_caixa(model.getRowCount()+1);
+        currentcaixa.setValor(a);
+        currentcaixa.setTipo(tipodoValor.getSelectedItem().toString());
+        currentcaixa.setEntrege(StatusEntregue.getSelectedItem().toString());
+        Object[] linha={
+        currentcaixa.getId_caixa(),
+        currentcaixa.getValor(),
+        currentcaixa.getTipo(),
+        currentcaixa.getEntrege()
+            };
+            model.addRow(linha);   
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -238,7 +263,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void adcionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adcionarActionPerformed
         // TODO add your handling code here:
-TabelaCaixa();
+ListarTabela();
         valor.setText("");
     }//GEN-LAST:event_adcionarActionPerformed
 
@@ -298,6 +323,7 @@ TabelaCaixa();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Inicio().setVisible(true);
+                
             }
         });
     }

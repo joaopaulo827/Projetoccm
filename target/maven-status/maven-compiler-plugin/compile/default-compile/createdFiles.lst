@@ -1,4 +1,3 @@
-gerenciadorcontrole\Caixa.class
 tela\Cadastro$1.class
 tela\Inicio$1.class
 tela\Inicio$2.class
@@ -9,6 +8,7 @@ tela\Login$3.class
 model\CaixaBean.class
 tela\Inicio.class
 tela\Cadastro$2.class
+model\UsuarioLogin.class
 tela\Login$1.class
 conexao\Conexao.class
 tela\Login$2.class

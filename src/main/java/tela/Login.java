@@ -8,6 +8,7 @@ package tela;
 import javax.swing.JOptionPane;
 import model.UsuarioBean;
 import model.UsuarioDAO; 
+import model.UsuarioLogin;
 /**
  *
  * @author Aluno
@@ -208,6 +209,8 @@ public class Login extends javax.swing.JFrame {
             UsuarioDAO dao= new UsuarioDAO();
             UsuarioBean usuarioLogado=dao.logar(currentUser, currentSenha);
             JOptionPane.showMessageDialog(null, "Login bem-sucedido");
+            UsuarioLogin.setId(UsuarioLogin.getId());
+            UsuarioLogin.setNome(UsuarioLogin.getNome());
             new Inicio().setVisible(true);
             this.setVisible(false);
             if(usuarioLogado.getId()>0){

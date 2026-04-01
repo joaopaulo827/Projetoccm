@@ -20,7 +20,7 @@ public class CaixaDAO {
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
             
-            stmt = conn.prepareStatement("INSERT INTO tarefas (valor, tipo, entrega) VALUES (?, ?, ?)");
+            stmt = conn.prepareStatement("INSERT INTO caixa (valor, tipo, entrega) VALUES (?, ?, ?)");
             stmt.setDouble(1, caixa.getValor());           
             stmt.setString(2, caixa.getTipo());       
             stmt.setString(3, caixa.getEntrege()); 
@@ -40,7 +40,7 @@ public class CaixaDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
             
-            stmt = conn.prepareStatement("SELECT * FROM caixa ORDER BY id_caixa DESC");
+            stmt = conn.prepareStatement("SELECT * FROM caixa ORDER BY id_caixa ASC");
             
             rs = stmt.executeQuery();
             while (rs.next()) {
@@ -48,7 +48,7 @@ public class CaixaDAO {
                 caixa.setId_caixa(rs.getInt("id_caixa"));
                 caixa.setValor(rs.getFloat("valor"));
                 caixa.setTipo(rs.getString("Tipo"));
-                caixa.setEntrege(rs.getString("entrege"));
+                caixa.setEntrege(rs.getString("entrega"));
                 
 
                 caixas.add(caixa);
@@ -94,7 +94,7 @@ public class CaixaDAO {
             PreparedStatement stmt = null;
             
             // Prepara a instrução SQL para deletar uma tarefa pelo ID
-            stmt = conn.prepareStatement("DELETE FROM tarefas WHERE id_caixa = ?");
+            stmt = conn.prepareStatement("DELETE FROM caixa WHERE id_caixa = ?");
             stmt.setInt(1, id); // Define qual tarefa será deletada (por ID)
             
             // Executa a instrução de deleção no banco
