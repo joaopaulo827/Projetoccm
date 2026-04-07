@@ -76,6 +76,7 @@ boolean tamanhoSenha= false;
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jTextUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextUsuarioActionPerformed(evt);
@@ -103,6 +104,7 @@ boolean tamanhoSenha= false;
             .addGap(0, 303, Short.MAX_VALUE)
         );
 
+        jTextSenha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTextSenha.setToolTipText("");
         jTextSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

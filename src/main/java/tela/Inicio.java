@@ -94,6 +94,7 @@ public final class Inicio extends javax.swing.JFrame {
 
         Informacoes.setBackground(new java.awt.Color(105, 105, 105));
         Informacoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Informacoes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Informacoes.setForeground(new java.awt.Color(255, 255, 255));
         Informacoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,6 +134,7 @@ public final class Inicio extends javax.swing.JFrame {
             }
         });
 
+        valor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         valor.setForeground(new java.awt.Color(102, 102, 102));
         valor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +142,7 @@ public final class Inicio extends javax.swing.JFrame {
             }
         });
 
+        tipodoValor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tipodoValor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fisico", "Crédito", "Débito", "Pix" }));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -154,6 +157,7 @@ public final class Inicio extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Status da entrega");
 
+        StatusEntregue.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         StatusEntregue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entregue", "Não Entregue" }));
 
         Remover.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
